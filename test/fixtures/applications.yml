@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  status: MyString
+  applied_date: 2025-09-22
+  user: one
+  job: one
+  resume: one
+
+two:
+  status: MyString
+  applied_date: 2025-09-22
+  user: two
+  job: two
+  resume: two
