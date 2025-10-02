@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  get "jobs/Index"
+  get "jobs/show"
+  get "jobs/new"
+  get "jobs/create"
+  get "jobs/edit"
+  get "jobs/update"
+  get "jobs/destroy"
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
