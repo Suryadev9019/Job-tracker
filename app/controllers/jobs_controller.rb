@@ -15,7 +15,7 @@ before_action :set_job, only: [:show, :edit, :update, :destroy]
   end
 
   def create
-    @job = current_user.jobs_build(job_params)
+    @job = current_user.jobs.build(job_params)
     if @job.save   
       redirect_to jobs_path, notice: "Job was successfully created."
     else
@@ -36,6 +36,17 @@ before_action :set_job, only: [:show, :edit, :update, :destroy]
 
   def destroy
     @job.destroy
-    redirect_to jobs_path, notice: "Job was succed"
+    redirect_to jobs_path, notice: "Job was successfully deleted"
+  end
+
+  private
+
+  def set_job
+    @job = current_user.jobs.find(params[:id])
+  end
+
+  def job_params
+    params.require(:job).permit(:title, :company, :location, :description, :status, :applied_on)
   end
 end
+
