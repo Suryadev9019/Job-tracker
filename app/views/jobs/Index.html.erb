@@ -14,6 +14,14 @@
         </svg>
         New Job
       <% end %>
+
+       <%= link_to destroy_user_session_path, data: { turbo_method: :delete }, class: "inline-flex items-center gap-2 bg-gray-100 text-gray-700 px-4 py-2 rounded-lg shadow-sm hover:bg-gray-200 transition focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400" do %>
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h6a1 1 0 010 2H5v10h5a1 1 0 010 2H4a1 1 0 01-1-1V4zm13.293 4.293a1 1 0 010 1.414L13.414 13H20a1 1 0 110 2h-6.586l2.879 2.879a1 1 0 11-1.414 1.414l-4.586-4.586a1 1 0 010-1.414l4.586-4.586a1 1 0 011.414 0z" clip-rule="evenodd"/>
+      </svg>
+      Logout
+    <% end %>
+  </div>
     </div>
 
     <div class="mb-6 p-4 bg-white rounded-lg border border-gray-200">
