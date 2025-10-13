@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get "profiles/edit"
+  get "profiles/update"
   resources :jobs
   devise_for :users
   root "jobs#index"
