@@ -7,9 +7,15 @@ class ProfilesController < ApplicationController
 
   def update
     @user = current_user
-    if @user.update(progile_params)
+    if @user.update(profile_params)
       redirect_to rooth_path,notice: "Profile updated successfully"
     else
-      render :edit
+      render :edit 
   end
+end
+
+private
+def profile_params
+  params.require(:uder).permit(:city, :address)
+end
 end
