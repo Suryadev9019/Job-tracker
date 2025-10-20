@@ -19,6 +19,9 @@ gem "jbuilder"
 
 gem 'devise'
 gem "tailwindcss-rails"
+gem "pdf-reader"
+gem "docx"
+
 
 
 
