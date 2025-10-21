@@ -1,5 +1,7 @@
 class ResumesController < ApplicationController
-  class ResumesController < ApplicationController
+  before_action :authenticate_user!
+  before_action :set_resume, only: [:show , :edit, :update, :destroy]
+  before_action :autorize_user!,only: [:show , :edit, :update, :destroy]
   def new
     @resume = Resume.new
   end

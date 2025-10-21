@@ -25,6 +25,9 @@ Rails.application.configure do
     config.action_controller.perform_caching = false
   end
 
+  # Allow all hosts in development (safe for local testing)
+    config.hosts.clear
+
   # Change to :null_store to avoid any caching.
   config.cache_store = :memory_store
 
