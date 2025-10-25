@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "dashboard/index"
   resources :jobs
   devise_for :users
   resource :profile, only: [:edit,:update]
