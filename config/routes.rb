@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resource :profile, only: [:edit,:update]
   root "jobs#index"
   resources :resumes
-
+  get "dashboard/index"
   get "up" => "rails/health#show", as: :rails_health_check
 
   
