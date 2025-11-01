@@ -5,6 +5,16 @@
         <h1 class="text-3xl font-bold text-gray-900">My Job Applications</h1>
         <p class="mt-1 text-md text-gray-600">Keep track of your career opportunities in one place.</p>
       </div>
+
+      <div class="flex flex-wrap items-center gap-3 mt-4 md:mt-0">
+        <!-- Dashboard Button -->
+        <%= link_to dashboard_path, class: "inline-flex items-center gap-2 bg-indigo-600 text-black px-4 py-2 rounded-lg shadow-sm hover:bg-indigo-700 transition focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" do %>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M3 13h4v4H3v-4zm0-6h4v4H3V7zm5 0h4v4H8V7zm5 0h4v10h-4V7z"/>
+          </svg>
+          Dashboard
+        <% end %>
+
       <%= link_to new_job_path, class: "mt-4 md:mt-0 inline-flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-lg shadow-sm hover:bg-blue-700 transition focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500" do %>
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
           <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
