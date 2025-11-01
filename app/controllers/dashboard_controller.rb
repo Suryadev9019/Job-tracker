@@ -11,5 +11,6 @@ class DashboardController < ApplicationController
     @total_jobs = current_user.jobs.count
     @interview_jobs = current_user.jobs.where(status: "interview").count
     @pending_jobs = current_user.jobs.where(status: "pending").count
+    @rejected_jobs = current_user.jobs.where(status: "rejected").count
   end
 end
