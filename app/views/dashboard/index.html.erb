@@ -1,34 +1,38 @@
-<div class="max-w-5xl mx-auto p-6">
-  <h1 class="text-3xl font-bold mb-8 text-gray-800">📊 My Job Tracker Dashboard</h1>
+<div class="max-w-6xl mx-auto px-6 py-10 bg-gray-50 min-h-screen">
+  <h1 class="text-4xl font-extrabold mb-10 text-gray-900 flex items-center gap-3">
+    📊 My Job Tracker Dashboard
+  </h1>
 
   <!-- Stats Section -->
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-    <div class="bg-blue-100 p-6 rounded-2xl shadow text-center">
-      <h2 class="text-lg font-semibold text-blue-900">Total Jobs</h2>
-      <p class="text-3xl font-bold text-blue-700 mt-2"><%= @total_jobs %></p>
-    </div>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+    <% stats = [
+      { title: "Total Jobs", value: @total_jobs, color: "blue" },
+      { title: "Pending", value: @pending_jobs, color: "amber" },
+      { title: "Interview", value: @interview_jobs, color: "green" },
+      { title: "Rejected", value: @rejected_jobs, color: "rose" }
+    ] %>
 
-    <div class="bg-yellow-100 p-6 rounded-2xl shadow text-center">
-      <h2 class="text-lg font-semibold text-yellow-900">Pending</h2>
-      <p class="text-3xl font-bold text-yellow-700 mt-2"><%= @pending_jobs %></p>
-    </div>
-
-    <div class="bg-green-100 p-6 rounded-2xl shadow text-center">
-      <h2 class="text-lg font-semibold text-green-900">Interview</h2>
-      <p class="text-3xl font-bold text-green-700 mt-2"><%= @interview_jobs %></p>
-    </div>
-
-    <div class="bg-red-100 p-6 rounded-2xl shadow text-center">
-      <h2 class="text-lg font-semibold text-red-900">Rejected</h2>
-      <p class="text-3xl font-bold text-red-700 mt-2"><%= @rejected_jobs %></p>
-    </div>
+    <% stats.each do |s| %>
+      <div class="group relative bg-gradient-to-br from-<%= s[:color] %>-100 to-white border border-<%= s[:color] %>-200 p-6 rounded-2xl shadow hover:shadow-lg transition duration-300">
+        <div class="absolute right-4 top-4 text-<%= s[:color] %>-300 text-5xl opacity-10 select-none">★</div>
+        <h2 class="text-lg font-semibold text-<%= s[:color] %>-900"><%= s[:title] %></h2>
+        <p class="text-4xl font-extrabold text-<%= s[:color] %>-700 mt-3 group-hover:scale-105 transition-transform duration-300">
+          <%= s[:value] %>
+        </p>
+      </div>
+    <% end %>
   </div>
 
-  <!-- Placeholder for Charts -->
-  <div class="bg-white rounded-2xl shadow p-6">
-    <h2 class="text-xl font-semibold mb-4 text-gray-700">📈 Applications Overview</h2>
-    <p class="text-gray-500">
-      Charts will appear here soon! (Pie chart + timeline graph)
-    </p>
+  <!-- Charts Section -->
+  <div class="bg-white rounded-2xl shadow p-8 border border-gray-100">
+    <div class="flex items-center justify-between mb-4">
+      <h2 class="text-2xl font-semibold text-gray-800">📈 Applications Overview</h2>
+      <button class="text-sm text-blue-600 hover:text-blue-800 font-medium">
+        View Details →
+      </button>
+    </div>
+    <div class="h-64 flex items-center justify-center text-gray-400 border-2 border-dashed border-gray-200 rounded-xl">
+      Charts will appear here soon
+    </div>
   </div>
 </div>
