@@ -69,3 +69,7 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+gem "chartkick", "~> 5.2"
+
+gem "groupdate", "~> 6.7"
