@@ -19,6 +19,7 @@ before_action :set_job, only: [:show, :edit, :update, :destroy]
     if @job.save   
       redirect_to jobs_path, notice: "Job was successfully created."
     else
+      flash.now[:alert] = "Please fill in all the required fieilds."
       render :new, alert: "There was an error creating the job."
     end
   end
