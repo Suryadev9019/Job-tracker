@@ -5,6 +5,7 @@ before_action :set_job, only: [:show, :edit, :update, :destroy]
 
   def index
     @jobs = current_user.jobs.order(created_at: :desc)
+    @jobs_by_status = current_user.jobs.group(:status).count
   end
 
   def show
