@@ -10,7 +10,14 @@ rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 private
 
 def user_not_authorized
-  flash[:alert} = "You are not authorized to perform this action."
-redirect_to(request.referer // root_path)]
+  flash[:alert] = "You are not authorized to perform this action."
+redirect_to(request.referer || root_path)
+end
+
+def device_controller_or_health_check?
+  is_a?(Device::SessionsCpntroller) ||
+  is_a?(Device::RegistrationsController) ||
+  is_a?(Device::PasswordsController) ||
+  controller_name == 'rails/health'
 end
 end
