@@ -1,5 +1,5 @@
 class ResumesController < ApplicationController
-  before_action :authenticate_user!
+  
   before_action :set_resume, only: [:show , :edit, :update, :destroy]
   before_action :autorize_user!,only: [:show , :edit, :update, :destroy]
   def new
@@ -12,7 +12,7 @@ class ResumesController < ApplicationController
     if @resume.save
       extracted = extract_text(@resume.file)
       @resume.update(extracted_text: extracted)
-      redirect_to @resume, notice: "Resume uploaded and text extracted!"
+      redirect_to @resume, not  ice: "Resume uploaded and text extracted!"
     else
       render :new
     end

@@ -14,10 +14,10 @@ def user_not_authorized
 redirect_to(request.referer || root_path)
 end
 
-def device_controller_or_health_check?
-  is_a?(Device::SessionsCpntroller) ||
-  is_a?(Device::RegistrationsController) ||
-  is_a?(Device::PasswordsController) ||
+def devise_controller_or_health_check?
+  is_a?(Devise::SessionsController) ||
+  is_a?(Devise::RegistrationsController) ||
+  is_a?(Devise::PasswordsController) ||
   controller_name == 'rails/health'
 end
 end
