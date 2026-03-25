@@ -587,6 +587,27 @@ Uses Rails Active Storage for file handling:
 - Node.js (for JavaScript dependencies)
 - Bundler gem
 
+### Ubuntu Dependency Setup (for fresh/migrated systems)
+
+If you moved this project to Ubuntu and are missing dependencies, run:
+
+```bash
+sudo apt update
+sudo apt install -y build-essential libssl-dev zlib1g-dev libreadline-dev libyaml-dev libffi-dev libgmp-dev rustc libpq-dev postgresql postgresql-client
+rbenv install 3.4.4
+rbenv local 3.4.4
+gem install bundler
+cd /media/suryadev/D/JobSeeker/job_tracker
+bundle install
+bin/rails db:prepare
+```
+
+Optional (only if needed in your setup):
+
+```bash
+sudo apt install -y yarnpkg
+```
+
 ### Installation Steps
 
 1. **Clone the repository**
