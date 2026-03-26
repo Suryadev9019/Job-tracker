@@ -12,5 +12,6 @@ class DashboardController < ApplicationController
     @interview_jobs = current_user.jobs.where(status: "interview").count
     @pending_jobs = current_user.jobs.where(status: "pending").count
     @rejected_jobs = current_user.jobs.where(status: "rejected").count
+    @recent_jobs = policy_scope(Job).order(created_at: :desc).limit(5)
   end
 end
