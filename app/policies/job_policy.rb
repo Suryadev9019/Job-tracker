@@ -1,6 +1,6 @@
 class JobPolicy < ApplicationPolicy
   def show?
-    owner_or_admin?
+    owns_record?
   end
 
   def create?
@@ -8,26 +8,23 @@ class JobPolicy < ApplicationPolicy
   end
 
   def update?
-    owner_or_admin?
+    owns_record?
   end
 
   def destroy?
-    owner_or_admin?
+    owns_record?
   end
 
   class Scope < Scope
     def resolve
-      if user&.admin?
-        scope.all
-      else
-        scope.where(user_id: user.id)
-      end
+      return scope.none unless user
+        scope.where(user_id: user.id)   
     end
   end
 
   private
 
-  def owner_or_admin?
-    user.present? && (record.user_id == user.id || user.admin?)
+  def owns_record?
+    user.present? && record.user_id == user.id 
   end
 end
