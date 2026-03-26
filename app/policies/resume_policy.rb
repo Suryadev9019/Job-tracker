@@ -31,3 +31,4 @@ class ResumePolicy < ApplicationPolicy
     user.present? && (record.user_id == user.id || user.admin?)
   end
 end
+w
